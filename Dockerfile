@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-transport-h
   curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
   apt-get update && \
   apt-get install -y --no-install-recommends \
+  git \
   libpq-dev \
   nodejs \
   postgresql-client \
