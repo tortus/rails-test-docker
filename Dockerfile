@@ -1,5 +1,5 @@
 # Ruby 2.5.5 image with nodejs, yarn, and postgresql client installed
-FROM ruby:2.5.5-slim-stretch
+FROM ruby:2.5.5-stretch
 
 ENV RAILS_ENV=test
 ENV RACK_ENV=test
@@ -11,7 +11,8 @@ ENV DEVISE_DECRET_KEY=TEST_DEVISE_SECRET_KEY
 
 ENV BUNDLER_VERSION=2.0.1
 
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+RUN apt-get update && apt-get install -y --no-install-recommends apt-transport-https && \
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
   apt-get update && \
   apt-get install -y --no-install-recommends \
